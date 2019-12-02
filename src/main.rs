@@ -12,9 +12,12 @@ fn main() {
         *seen.entry(b).or_default() += 1;
     }
     eprintln!("Ran for {0} (0x{0:08x}) iterations, saw only {1} (0x{1:08x}) different values", UPPER, seen.len());
+    let mut histhist = BtreeMap::<u32, u32>::new();
     for (k, v) in seen {
-        if v != 1 {
-            println!("{:08x}: {} times", k, v);
-        }
+        *histhist.entry(v).or_default() += 1;
+    }
+    eprintln!("Grouping complete.  histhist has {} entries.", histhist.len());
+    for (k, v) in histhist {
+        println!("“__ seen {} times” seen {} times.", k, v);
     }
 }
