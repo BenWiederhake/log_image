@@ -8,7 +8,7 @@ fn main() {
         if 0 == a & 0x00FFFFFF {
             eprintln!("--- iter 0x{:08x} (0x{:08x} elems)", a, seen.len());
         }
-        let b = f32::from_bits(a).ln().to_bits();
+        let b = f32::from_bits(a).ln().ln().to_bits();
         *seen.entry(b).or_default() += 1;
     }
     eprintln!("Ran for {0} (0x{0:08x}) iterations, saw only {1} (0x{1:08x}) different values", UPPER, seen.len());
