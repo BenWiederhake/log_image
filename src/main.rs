@@ -12,7 +12,7 @@ fn main() {
         *seen.entry(b).or_default() += 1;
     }
     eprintln!("Ran for {0} (0x{0:08x}) iterations, saw only {1} (0x{1:08x}) different values", UPPER, seen.len());
-    let mut histhist = BtreeMap::<u32, u32>::new();
+    let mut histhist = BTreeMap::<u32, u32>::new();
     eprintln!("Grouping ...");
     for (k, v) in seen {
         *histhist.entry(v).or_default() += 1;
